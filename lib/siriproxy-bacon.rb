@@ -1,6 +1,7 @@
 require 'cora'
 require 'siri_objects'
 require 'nokogiri'
+#require 'open-uri'
 
 class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 
@@ -12,6 +13,13 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 		uri = "http://oracleofbacon.org/cgi-bin/xml?a=Kevin%20Bacon&b=#{to.strip.gsub(" ", "%20")}&u=1&p=google-apps"
 		doc = Nokogiri::XML(open(uri))
 		
+		spellcheck = doc.xpath("//spellcheck/match").first
+		
+		if (spellcheck)
+			uri = "http://oracleofbacon.org/cgi-bin/xml?a=Kevin%20Bacon&b=#{spellcheck.text.strip.gsub(" ", "%20")}&u=1&p=google-apps"
+			doc = Nokogiri::XML(open(uri))
+		end
+
 		return parse(doc)
 	end
 
@@ -35,7 +43,7 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 		firstPerson = true
 		
 		actors.each do |actor|
-			r = r + actor.text.strip
+			r = r + actor.text.sub(/\s*\(.+\)$/, "").strip
 			
 			if (movies[movieIndex])
 				r = r + (firstPerson ? "" : " who") + " was in #{movies[movieIndex].text.sub(/\s*\(.+\)$/, '')} with "
