@@ -6,11 +6,12 @@ require 'cgi'
 class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 
 	def initialize(config = {})
-		@the_oracle = CGI::escape("Kevin Bacon")
+		@the_oracle = "Kevin Bacon"
+		@the_oracle_escaped = CGI::escape(@the_oracle)
 	end
 
 	def bacon_url(actor)
-		uri = "http://oracleofbacon.org/cgi-bin/xml?a=#{@the_oracle}&b=#{CGI::escape(actor)}&u=1&p=google-apps"
+		uri = "http://oracleofbacon.org/cgi-bin/xml?a=#{@the_oracle_escaped}&b=#{CGI::escape(actor)}&u=1&p=google-apps"
 		
 		return uri
 	end
@@ -35,20 +36,22 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 		attr = doc.xpath("//link//actor").first # => "<actor>Tom Cruise</actor>"
 		
 		if (!attr)
-			return "Cannot find actor."
+			return "Cannot find actor"
 		end
 
 		actors = doc.xpath("//link//actor")
 		movies = doc.xpath("//link//movie")
 		
 		if (!actors || actors.length == 0)
-			return "No match found."
+			return "No match found"
+		elsif (actors.first.text.include?(@the_oracle))
+			return "#{@the_oracle}, is the Oracle"
 		end
 
 		movieIndex = 0
 		r = ""
 		firstPerson = true
-		
+
 		actors.each do |actor|
 			r = r + actor.text.sub(/\s*\(.+\)$/, "").strip
 			
