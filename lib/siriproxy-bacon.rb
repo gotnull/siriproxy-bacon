@@ -49,7 +49,7 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 		return r
 	end
 
-	# Example: "Kevin Bacon and Tom Cruise?"
+	# Example: "Kevin Bacon and Tom Cruise"
 	listen_for /kevin bacon and (.+)/i do |actor|
 
 		say "Oracle of Bacon, here we come!"
