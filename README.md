@@ -17,10 +17,6 @@ Usage
 
 Will return the relationship between the actor and Kevin Bacon!
 
-e.g. Kevin Bacon and Tom Cruise returns the following:
+e.g. `Kevin Bacon and Tom Cruise` returns the following:
 
-  Tom Cruise
-    was in
-A Few Good Men (1992)
-     with
-  Kevin Bacon 
+Tom Cruise was in A Few Good Men with Kevin Bacon.
