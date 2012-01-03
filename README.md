@@ -1,4 +1,4 @@
-This is plugin for SiriProxy that replicated the functionality at http://www.oracleofbacon.org
+This is plugin for SiriProxy that replicates the functionality at http://www.oracleofbacon.org
 
 # Setup
 
