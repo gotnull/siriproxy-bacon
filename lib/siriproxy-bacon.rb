@@ -1,22 +1,29 @@
 require 'cora'
 require 'siri_objects'
 require 'nokogiri'
-#require 'open-uri'
+require 'cgi'
 
 class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 
 	def initialize(config = {})
+		@the_oracle = CGI::escape("Kevin Bacon")
+	end
+
+	def bacon_url(actor)
+		uri = "http://oracleofbacon.org/cgi-bin/xml?a=#{@the_oracle}&b=#{CGI::escape(actor)}&u=1&p=google-apps"
+		
+		return uri
 	end
 
 	def kb(to)
 		
-		uri = "http://oracleofbacon.org/cgi-bin/xml?a=Kevin%20Bacon&b=#{to.strip.gsub(" ", "%20")}&u=1&p=google-apps"
+		uri = bacon_url(to.strip)
 		doc = Nokogiri::XML(open(uri))
 		
 		spellcheck = doc.xpath("//spellcheck/match").first
 		
 		if (spellcheck)
-			uri = "http://oracleofbacon.org/cgi-bin/xml?a=Kevin%20Bacon&b=#{spellcheck.text.strip.gsub(" ", "%20")}&u=1&p=google-apps"
+			uri = bacon_url(spellcheck.text.strip)
 			doc = Nokogiri::XML(open(uri))
 		end
 
