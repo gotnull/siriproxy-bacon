@@ -6,5 +6,5 @@
 #         them in SiriProxy's ~/.siriproxy/config.yml
 ############################################
 
-    - name: 'Bacon' #don't touch
+    - name: 'Bacon' #don't eat
       path: 'git://github.com/rakusu/siriproxy-bacon.git' #don't touch
