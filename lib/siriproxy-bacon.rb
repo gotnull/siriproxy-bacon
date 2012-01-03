@@ -45,7 +45,7 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 		if (!actors || actors.length == 0)
 			return "No match found"
 		elsif (actors.first.text.include?(@the_oracle))
-			return "#{@the_oracle}, is the Oracle"
+			return "#{@the_oracle}, is The Oracle"
 		end
 
 		movieIndex = 0
