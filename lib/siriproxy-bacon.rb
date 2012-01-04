@@ -17,6 +17,10 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 		return uri
 	end
 
+	def remove_parentheses(str)
+		return str.sub(/\s*\(.+\)$/, "")
+	end
+
 	def kb(to)
 		
 		uri = bacon_url(to.strip)
@@ -54,10 +58,10 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 		firstPerson = true
 
 		actors.each do |actor|
-			r = r + actor.text.sub(/\s*\(.+\)$/, "").strip
+			r = r + remove_parentheses(actor.text).strip
 			
 			if (movies[movieIndex])
-				r = r + (firstPerson ? "" : " who") + " was in #{movies[movieIndex].text.sub(/\s*\(.+\)$/, '')} with "
+				r = r + (firstPerson ? "" : " who") + " was in #{remove_parentheses(movies[movieIndex].text)} with "
 			end
 			
 			movieIndex += 1
