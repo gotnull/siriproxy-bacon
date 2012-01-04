@@ -9,6 +9,11 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 	def initialize(config = {})
 		@the_oracle = "Kevin Bacon"
 		@the_oracle_escaped = CGI::escape(@the_oracle)
+		@responses = [	"Cooking up some Bacon!",
+				"Oracle of Bacon, here we come!",
+				"Mmm, Bacon!",
+				"Bacon this, bacon that!",
+				"Want some Bacon?"	]
 	end
 
 	def bacon_url(actor)
@@ -75,7 +80,7 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 	# Example: "Kevin Bacon and Tom Cruise"
 	listen_for /kevin bacon and (.+)/i do |actor|
 
-		say "Oracle of Bacon, here we come!"
+		say @responses[rand(@responses.size)]
 
 		Thread.new {
 		
