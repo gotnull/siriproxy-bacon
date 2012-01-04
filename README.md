@@ -1,7 +1,7 @@
 Oracle of Bacon, Siri style!
 ============================
 
-This is plugin for SiriProxy the replicates the functionality at http://www.oracleofbacon.org
+This is a plugin for SiriProxy that replicates the functionality at http://www.oracleofbacon.org
 
 Setup
 -----
