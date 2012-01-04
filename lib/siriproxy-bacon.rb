@@ -8,6 +8,7 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 
 	def initialize(config = {})
 		@the_oracle = "Kevin Bacon"
+		@bacon_number = 0
 		@the_oracle_escaped = CGI::escape(@the_oracle)
 		@responses = [	"Cooking up some Bacon!",
 				"Oracle of Bacon, here we come!",
@@ -74,7 +75,13 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 			firstPerson = false
 		end
 
+		bacon_number(movieIndex)
+
 		return r
+	end
+
+	def bacon_number(index)
+		@bacon_number = (index - 1)
 	end
 
 	# Example: "Kevin Bacon and Tom Cruise"
@@ -87,6 +94,22 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 			results = "#{kb(actor)}."
 			
 			say results
+		
+			request_completed
+		}
+
+	end
+
+	# Example: "Bacon Number for Tom Cruise"
+	listen_for /bacon number for (.+)/i do |actor|
+
+		say @responses[rand(@responses.size)]
+
+		Thread.new {
+		
+			kb(actor)
+			
+			say "#{actor} has a Bacon Number of #{@bacon_number}."
 		
 			request_completed
 		}
