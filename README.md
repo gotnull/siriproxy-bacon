@@ -30,6 +30,11 @@ As of 24 June 2011, the highest finite Bacon number reported by the Oracle of Ba
 
 Because some people have both Bacon and Erdős numbers due to acting and publications, there are a rare few who have an Erdős–Bacon number, which is defined as the sum of a person's independent Erdős and Bacon numbers.
 
+Undefined Bacon numbers
+-----------------------
+
+A small proportion of actors have an undefined Bacon number, meaning that they cannot be linked to Bacon in any number of connections at all. According to the Oracle of Bacon website approximately 12% of all actors cannot be linked to Bacon using its criteria, but this number is difficult to verify.
+
 Prerequisite Gems
 -----------------
 
