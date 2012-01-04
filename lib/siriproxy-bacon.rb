@@ -2,6 +2,7 @@ require 'cora'
 require 'siri_objects'
 require 'nokogiri'
 require 'cgi'
+require 'open-uri'
 
 class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 
