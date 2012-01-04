@@ -3,6 +3,11 @@ Oracle of Bacon, Siri style!
 
 This is a plugin for SiriProxy that replicates the functionality at http://www.oracleofbacon.org
 
+History
+-------
+
+Six Degrees of Kevin Bacon is a trivia game based on the concept of the small world phenomenon and rests on the assumption that any individual involved in the Hollywood, California film industry can be linked through his or her film roles to actor Kevin Bacon within six steps. The name of the game is a play on the "six degrees of separation" concept. The game requires a group of players to try to connect any individual to Kevin Bacon as quickly as possible and in as few links as possible. In 2007, Bacon started a charitable organization named SixDegrees.org.
+
 Prerequisite Gems
 -----------------
 
