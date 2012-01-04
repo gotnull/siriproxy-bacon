@@ -3,6 +3,12 @@ Oracle of Bacon, Siri style!
 
 This is a plugin for SiriProxy that replicates the functionality at http://www.oracleofbacon.org
 
+Prerequisite Gems
+-----------------
+
+1. Nokogiri (`gem install nokogiri`)
+2. OpenURI (`gem install open-uri`)
+
 Setup
 -----
 
