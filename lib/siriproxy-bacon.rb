@@ -77,7 +77,7 @@ class SiriProxy::Plugin::Bacon < SiriProxy::Plugin
 		return r
 	end
 
-	# Example: "Kevin Bacon and Tom Cruise"
+	# Example: "Kevin Bacon and Samuel L. Jackson"
 	listen_for /kevin bacon and (.+)/i do |actor|
 
 		say @responses[rand(@responses.size)]
